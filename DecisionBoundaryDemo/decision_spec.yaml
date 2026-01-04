@@ -1,0 +1,189 @@
+# Insurance Decision Specification
+# Extracted from DecisionBoundaryDemo implementation
+# This specification defines the governance constraints for the insurance decision support system
+
+version: "1.0.0"
+name: "Insurance Claims Decision Support System"
+last_updated: "2026-01-04"
+
+# GOVERNANCE CONSTRAINTS
+governance:
+  # CRITICAL: Auto-action must be disabled
+  auto_action: false
+  
+  # CRITICAL: Human review is mandatory
+  human_review_required: true
+  
+  # System type: advisory only, non-autonomous
+  system_type: "advisory"
+  
+  # Decision authority
+  decision_authority: "human"
+  
+  # Autonomous operation
+  autonomous_operation: false
+
+# DECISION OUTPUTS
+decision_outputs:
+  # All outputs are advisory only
+  type: "advisory"
+  
+  # No binding decisions
+  binding: false
+  
+  # Outputs provided
+  outputs:
+    - rule_signals
+    - model_suggestion
+    - uncertainty_level
+    - explanation
+    - score
+  
+  # All suggestions require human confirmation
+  requires_human_confirmation: true
+
+# MODEL SPECIFICATION
+model:
+  type: "rule-based"
+  architecture: "deterministic_heuristic"
+  training: "none"
+  
+  # Model constraints
+  constraints:
+    - "Classical ML only (logistic regression, tree-based)"
+    - "No LLMs"
+    - "No reinforcement learning"
+    - "No automated decisions"
+  
+  # Explainability
+  explainability:
+    required: true
+    methods:
+      - "rule_signals"
+      - "feature_importance"
+      - "confidence_scores"
+
+# DECISION BOUNDARIES
+decision_boundaries:
+  damage_thresholds:
+    low: 5000
+    medium: 15000
+    high: 50000
+  
+  risk_weights:
+    low: 1.0
+    medium: 1.5
+    high: 2.0
+  
+  injury_multiplier: 1.8
+  
+  severity_thresholds:
+    low: 5
+    medium: 15
+
+# INPUT FEATURES
+input_features:
+  - name: "claim_type"
+    type: "categorical"
+    values: ["Auto", "Property", "Health", "Liability"]
+    required: true
+  
+  - name: "damage_amount"
+    type: "numeric"
+    unit: "USD"
+    required: true
+  
+  - name: "injury_involved"
+    type: "boolean"
+    required: true
+  
+  - name: "risk_factor"
+    type: "categorical"
+    values: ["low", "medium", "high"]
+    required: true
+
+# HUMAN-IN-THE-LOOP REQUIREMENTS
+human_in_the_loop:
+  mandatory: true
+  
+  requirements:
+    - "Human must review all model suggestions"
+    - "Human must provide independent judgment"
+    - "Human must confirm final decision"
+    - "Human must document rationale"
+  
+  enforcement:
+    - "No decision finalized without human_confirms=True"
+    - "Human must provide non-empty override_reason"
+    - "System blocks autonomous operation"
+    - "All confirmations logged in audit trail"
+
+# AUDIT AND COMPLIANCE
+audit:
+  required: true
+  
+  logged_items:
+    - "All inputs"
+    - "All model outputs"
+    - "Human decisions"
+    - "Human rationale"
+    - "Timestamps"
+    - "Decision-maker identity"
+  
+  transparency:
+    - "All decision logic is open source"
+    - "Explanations provided for every decision"
+    - "Governance constraints are explicit"
+    - "Audit trail is complete and accessible"
+
+# LIMITATIONS
+limitations:
+  - "Demonstration system only"
+  - "Uses synthetic/generic data"
+  - "Not for production use"
+  - "No accuracy or performance claims"
+  - "Simplified decision rules"
+  - "No regulatory approval"
+  - "No real-world validation"
+
+# ETHICAL CONSIDERATIONS
+ethics:
+  transparency:
+    - "No hidden logic or black box decisions"
+    - "Uncertainty explicitly communicated"
+    - "Human judgment preserved and required"
+  
+  accountability:
+    - "Human decision-maker identified in audit trail"
+    - "Rationale required and logged"
+    - "Decision ownership is clear"
+  
+  safety:
+    - "System cannot operate autonomously"
+    - "Fail-safe defaults (reject on error)"
+    - "Explicit capability constraints"
+
+# DATASET REFERENCE
+dataset:
+  name: "BDR-AI/insurance_decision_boundaries_v1"
+  platform: "Hugging Face"
+  type: "synthetic"
+  purpose: "demonstration"
+
+# DEPLOYMENT CONSTRAINTS
+deployment:
+  mode: "reference_implementation"
+  quality: "educational_institutional"
+  production_ready: false
+  
+  allowed_actions:
+    - "READ existing Hugging Face dataset"
+    - "TRAIN classical ML baseline model"
+    - "GENERATE model_card.md"
+    - "EXPOSE confidence scores and feature importance"
+  
+  prohibited_actions:
+    - "Modify decision logic or thresholds"
+    - "Add new features beyond documented inputs"
+    - "Implement autonomous actions"
+    - "Deploy or publish without approval"
