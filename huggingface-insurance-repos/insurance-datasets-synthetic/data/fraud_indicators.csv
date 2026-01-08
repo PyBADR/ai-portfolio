@@ -1,0 +1,16 @@
+indicator_id,claim_id,indicator_type,risk_level,indicator_description,detection_date,verified_status
+FI-001,CLM-2024-003,Multiple Claims,High,Three claims filed within 6 months,2024-01-25,Under Review
+FI-002,CLM-2024-004,Suspicious Timing,Medium,Claim filed 2 days after policy activation,2024-02-05,Cleared
+FI-003,CLM-2024-006,Inconsistent Details,Medium,Witness statements do not match claimant report,2024-02-18,Under Review
+FI-004,CLM-2024-011,Multiple Claims,High,Two theft claims in same year,2024-03-25,Flagged
+FI-005,CLM-2024-012,High Amount,Medium,Claim amount 95% of coverage limit,2024-04-05,Cleared
+FI-006,CLM-2024-014,Prior History,Low,Claimant had 2 claims in previous 3 years,2024-04-20,Cleared
+FI-007,CLM-2024-019,Multiple Claims,High,Second theft claim within 12 months,2024-06-01,Under Review
+FI-008,CLM-2024-020,High Amount,Medium,Claim amount exceeds 85% of coverage,2024-06-06,Cleared
+FI-009,CLM-2024-008,Suspicious Timing,Low,Claim filed during severe weather event,2024-03-03,Cleared
+FI-010,CLM-2024-016,Documentation Issues,Medium,Missing receipts for claimed items,2024-05-08,Under Review
+FI-011,CLM-2024-003,Rapid Settlement,Low,Claimant requesting expedited payment,2024-01-28,Cleared
+FI-012,CLM-2024-024,Prior History,Low,One previous claim 18 months ago,2024-07-05,Cleared
+FI-013,CLM-2024-006,Third Party Involvement,Medium,Public adjuster involved in claim,2024-02-20,Cleared
+FI-014,CLM-2024-011,Documentation Issues,High,Vehicle title shows different owner,2024-03-28,Flagged
+FI-015,CLM-2024-019,Suspicious Timing,High,Claim filed 5 days after policy start,2024-06-02,Under Review
